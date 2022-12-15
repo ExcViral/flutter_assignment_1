@@ -5,6 +5,9 @@
 
 import 'package:flutter/material.dart';
 
+import './display_text.dart';
+import './text_control.dart';
+
 void main() => runApp(App());
 
 class App extends StatefulWidget {
@@ -17,6 +20,12 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   var demoText = 'This is Demo Text';
 
+  void textChanger(String text) {
+    setState(() {
+      demoText = text;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,14 +36,8 @@ class _AppState extends State<App> {
         body: Container(
           child: Column(
             children: [
-              Text(demoText),
-              ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      demoText = 'Demo Text Changed!!!';
-                    });
-                  },
-                  child: Text('Change Text'))
+              DisplayText(demoText),
+              TextControl(onPressedHandler: textChanger)
             ],
           ),
         ),
