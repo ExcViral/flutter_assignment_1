@@ -7,7 +7,16 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(App());
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _AppState();
+  }
+}
+
+class _AppState extends State<App> {
+  var demoText = 'This is Demo Text';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,7 +25,18 @@ class App extends StatelessWidget {
           title: Text('myApp2'),
         ),
         body: Container(
-          child: Text('Demo Text'),
+          child: Column(
+            children: [
+              Text(demoText),
+              ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      demoText = 'Demo Text Changed!!!';
+                    });
+                  },
+                  child: Text('Change Text'))
+            ],
+          ),
         ),
       ),
     );
