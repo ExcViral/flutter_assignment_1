@@ -3,3 +3,22 @@
 // 2) Add a button which changes the text (to any other text of your choice)
 // 3) Split the app into three widgets: App, TextControl & Text
 
+import 'package:flutter/material.dart';
+
+void main() => runApp(App());
+
+class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('myApp2'),
+        ),
+        body: Container(
+          child: Text('Demo Text'),
+        ),
+      ),
+    );
+  }
+}
